@@ -2,7 +2,7 @@ import { forwardRef, type HTMLAttributes } from "react";
 import { ItemActions } from "./item-actions";
 import type { ListProduct } from "./list-product";
 import { cn } from "../lib/utils";
-export interface ProductCardProps extends HTMLAttributes<HTMLElement> {
+export interface ProductCardProps extends Omit<HTMLAttributes<HTMLElement>, "onSelect" | "onCopy"> {
  item: ListProduct; selectable?: boolean; selected?: boolean;
  onSelect?: (checked: boolean) => void; onRemove?: () => void; onCopy?: () => void;
 }

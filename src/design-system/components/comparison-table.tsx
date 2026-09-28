@@ -4,7 +4,7 @@ import type { ListProduct } from "./list-product";
 import { cn } from "../lib/utils";
 export interface ComparisonColumn { name: string; image?: string; }
 export interface ComparisonRow { feature: string; values: string[]; }
-export interface ComparisonTableProps extends HTMLAttributes<HTMLDivElement> {
+export interface ComparisonTableProps extends Omit<HTMLAttributes<HTMLDivElement>, "onSelect" | "onCopy"> {
  items: ListProduct[]; selectable?: boolean; selectedIds?: string[];
  onSelect?: (id: string, checked: boolean) => void; onRemove?: (id: string) => void; onCopy?: (url: string) => void;
 }
