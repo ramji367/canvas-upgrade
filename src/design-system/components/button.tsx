@@ -17,5 +17,5 @@ const variants: Record<ButtonVariant, string> = {
 };
 const sizes: Record<ButtonSize, string> = { sm: "h-control-sm px-3 text-xs", md: "h-control px-4 text-sm", lg: "h-control-lg px-5 text-sm" };
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ className, variant = "primary", size = "md", loading = false, disabled, children, ...props }, ref) {
-  return <button ref={ref} disabled={disabled || loading} className={cn("inline-flex shrink-0 items-center justify-center gap-2 rounded-control font-bold transition-colors outline-hidden focus-visible:ring-3 focus-visible:ring-focus/30 disabled:cursor-not-allowed", variants[variant], sizes[size], className)} {...props}>{loading && <LoaderCircle aria-hidden="true" className="size-4 animate-spin" />}<span>{children}</span></button>;
+  return <button ref={ref} disabled={disabled || loading} className={cn("inline-flex shrink-0 items-center justify-center gap-2 rounded-control font-bold transition-colors outline-hidden focus-visible:ring-3 focus-visible:ring-focus/30 disabled:cursor-not-allowed", variants[variant], sizes[size], className)} {...props}>{loading && <LoaderCircle aria-hidden="true" className="size-4 animate-spin" />}{children}</button>;
 });
