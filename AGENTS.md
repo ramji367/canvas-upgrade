@@ -1,10 +1,4 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Project decisions
+- Keep the Sift design system in `src/design-system` with semantic Tailwind v4 tokens in its theme CSS; this makes the reusable controls and showcase consume one source of truth.
+- The list page uses local mock data and reversible preview actions; the requested canvas demonstration needs no backend or permanent writes.
+- Preserve the stable mock GTDL share URL as demo content, not a published live list; this avoids implying that a hosted list exists.
