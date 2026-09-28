@@ -3,4 +3,4 @@
 - [x] Build interactive mock list with rich, card, and comparison views.
 - [x] Verify canvas preview and prepare PR notes without pushing.
 - [x] Tighten card and rich view density for desktop and mobile.
-- [ ] Open GitHub PR after confirming a linked repository and reviewing the canvas changes.
+- [ ] Open GitHub PR — blocked until this canvas is linked to the intended GitHub repository (the original Figma v1 snapshot is read-only).

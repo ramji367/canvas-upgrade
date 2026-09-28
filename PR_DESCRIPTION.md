@@ -10,7 +10,7 @@
 ## Review notes
 - The GTDL URL and list contents are demonstration data; the link is not backed by a live published list.
 - Item removal and selection are local preview actions and reset on page refresh.
-- Review the updated canvas before merging the pull request.
+- The updated canvas is ready for review; a GitHub repository must be linked before a pull request can be opened.
 
 ## Verification
 - Browser-checked all three views, item selection, and 390px mobile layout with no page errors or horizontal overflow.
