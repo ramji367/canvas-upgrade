@@ -2,3 +2,5 @@
 - [x] Replace recommendation component and upgrade reusable list/item controls.
 - [x] Build interactive mock list with rich, card, and comparison views.
 - [x] Verify canvas preview and prepare PR notes without pushing.
+- [x] Tighten card and rich view density for desktop and mobile.
+- [ ] Open GitHub PR after confirming a linked repository and reviewing the canvas changes.
