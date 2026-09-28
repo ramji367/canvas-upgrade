@@ -1,8 +1,15 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { Headphones } from "lucide-react";
-import { Badge, type BadgeVariant } from "./badge";
+import { forwardRef, type HTMLAttributes } from "react";
+import { ItemActions } from "./item-actions";
+import type { ListProduct } from "./list-product";
 import { cn } from "../lib/utils";
-export interface ListItemProps extends HTMLAttributes<HTMLDivElement> { title: string; meta: string; price: string; status?: string; statusVariant?: BadgeVariant; icon?: ReactNode; }
-export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(function ListItem({ className, title, meta, price, status, statusVariant = "positive", icon, ...props }, ref) {
- return <div ref={ref} className={cn("flex min-h-16 items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card", className)} {...props}><div className="grid size-9 shrink-0 place-items-center rounded-control bg-surface-subtle text-muted-foreground">{icon ?? <Headphones className="size-4" aria-hidden="true" />}</div><div className="min-w-0 flex-1"><p className="truncate text-sm font-bold">{title}</p><p className="truncate text-xs text-muted-foreground">{meta}</p></div><div className="text-right"><p className="text-sm font-black">{price}</p>{status && <Badge variant={statusVariant} className="mt-1">{status}</Badge>}</div></div>;
+export interface ListItemProps extends HTMLAttributes<HTMLElement> {
+  item: ListProduct; selectable?: boolean; selected?: boolean;
+  onSelect?: (checked: boolean) => void; onRemove?: () => void; onCopy?: () => void;
+}
+export const ListItem = forwardRef<HTMLElement, ListItemProps>(function ListItem({ className, item, selectable = false, selected = false, onSelect = () => {}, onRemove = () => {}, onCopy = () => {}, ...props }, ref) {
+  return <article ref={ref} className={cn("grid gap-5 border-b border-border bg-surface px-5 py-5 sm:grid-cols-[9rem_minmax(0,1fr)_auto] sm:items-start sm:px-6", className)} {...props}>
+    <img src={item.image} alt={item.title} width={800} height={1000} className="h-auto w-full rounded-sm bg-surface-subtle object-contain sm:w-36" />
+    <div className="min-w-0"><div className="flex items-center gap-2 text-[11px] font-bold uppercase text-muted-foreground"><span>{item.maker}</span><span aria-hidden="true">/</span><span>{item.category}</span></div><h3 className="mt-1 text-xl leading-tight type-heading-2">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.note}</p><dl className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 text-xs sm:grid-cols-4"><div><dt className="text-muted-foreground">Price</dt><dd className="mt-0.5 font-bold">{item.price}</dd></div><div><dt className="text-muted-foreground">Layout</dt><dd className="mt-0.5 font-bold">{item.layout}</dd></div><div><dt className="text-muted-foreground">Case</dt><dd className="mt-0.5 font-bold">{item.material}</dd></div><div><dt className="text-muted-foreground">Connection</dt><dd className="mt-0.5 font-bold">{item.connection}</dd></div></dl></div>
+    <div className="-order-1 flex justify-end sm:order-none"><ItemActions item={item} selectable={selectable} selected={selected} onSelect={onSelect} onRemove={onRemove} onCopy={onCopy} /></div>
+  </article>;
 });
