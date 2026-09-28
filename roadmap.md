@@ -1,0 +1,4 @@
+- [ ] Apply Sift v2 tokens, typography, dark mode, and wider canvas.
+- [ ] Replace recommendation component and upgrade reusable list/item controls.
+- [ ] Build interactive mock list with rich, card, and comparison views.
+- [ ] Verify canvas preview and leave changes ready for review without pushing.
